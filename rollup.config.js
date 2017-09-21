@@ -27,7 +27,7 @@ export default {
 	name : 'ngxSecurity',
 	plugins : [
 		resolve(),
-		commonjs(), // so Rollup can convert `ms` to an ES module
+		commonjs(), // so Rollup can convert it to an ES module
 		copy({
 			"package-publish.json" : "dist/package.json"
 		})
