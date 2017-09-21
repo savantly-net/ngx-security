@@ -1,0 +1,2 @@
+# ngxSecurity
+Angular Security module
