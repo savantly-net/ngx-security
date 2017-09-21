@@ -1,5 +1,5 @@
 {
-	"name": "@savantly/ngxSecurity",
+	"name": "@savantly/ngx-security",
 	"version": "1.0.0",
 	"description": "Security service for Angular app",
 	"main": "dist/index.js",
