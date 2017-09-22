@@ -9,8 +9,12 @@ export interface IUser {
 
 @Component({
   selector: 'my-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  template: `
+    <p>
+      user works!
+    </p>
+`,
+  styles: []
 })
 export class UserComponent implements OnInit {
 

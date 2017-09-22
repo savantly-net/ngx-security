@@ -1,9 +1,10 @@
 import resolve from 'rollup-plugin-node-resolve';
-import copy from 'rollup-plugin-copy';
 import commonjs from 'rollup-plugin-commonjs';
+import pkgGen from 'rollup-plugin-pkg-generator';
 import pkg from './package.json';
 
-//Add here external dependencies that actually you use.
+// Add here external dependencies that actually you use.
+// This will exclude them from the bundle
 const globals = {
 	'@angular/core' : 'ng.core',
 	'@angular/core' : 'Injectable',
@@ -17,20 +18,27 @@ const globals = {
 	'jwt-decode' : 'decode'
 };
 
+function cleanName(name){
+	var parts = name.split('/');
+	if (parts.length > 1) {
+		return parts[parts.length-1];
+	} else return name;
+}
+
+
 export default {
 	input : 'dist/index.js',
 	output : {
-		file : pkg.module,
-		format : 'umd'
+		file : 'dist/' + cleanName(pkg.name) + '.umd.js',
+		format : 'umd',
+		exports: 'named'
 	},
 	sourcemap : true,
-	name : 'ngxSecurity',
+	name : cleanName(pkg.name),
 	plugins : [
 		resolve(),
 		commonjs(), // so Rollup can convert it to an ES module
-		copy({
-			"package-publish.json" : "dist/package.json"
-		})
+		pkgGen(),
 	],
 	external : Object.keys(globals),
 	globals : globals

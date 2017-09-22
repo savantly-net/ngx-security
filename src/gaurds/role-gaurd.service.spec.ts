@@ -4,6 +4,8 @@ import { TestBed, inject } from '@angular/core/testing';
 import { RoleGaurdService } from './role-gaurd.service';
 import { APP_BASE_HREF } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
+TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
 
 const routes: Routes = [];
 const routing = RouterModule.forRoot(routes);
