@@ -1,7 +1,11 @@
 import resolve from 'rollup-plugin-node-resolve-angular';
+import typescript from 'rollup-plugin-typescript2';
+import angular from 'rollup-plugin-angular';
+import copy from 'rollup-plugin-copy';
 import commonjs from 'rollup-plugin-commonjs';
 import uglify from 'rollup-plugin-uglify';
 import pkgGen from 'rollup-plugin-pkg-generator';
+import autoExternal from 'rollup-plugin-auto-external';
 import pkg from './package.json';
 
 import { minify } from 'uglify-es';
@@ -16,76 +20,53 @@ function cleanName(name){
 }
 
 const targetFolder = './dist/';
-const browserFile = cleanName(pkg.name) + '.umd.js'
-const moduleFile = cleanName(pkg.name) + '.es5.js'
-const minFile = cleanName(pkg.name) + '.umd.min.js'
-
-// Add here external dependencies that actually you use.
-// This will exclude them from the bundle
-const globals = {
-	'@angular/core' : 'core',
-	'@angular/core' : 'Injectable',
-	'@angular/common' : 'common',
-	'@angular/router' : 'CanActivate',
-	'@angular/router' : 'ActivatedRouteSnapshot',
-	'@angular/router' : 'Router',
-	'rxjs/Observable' : 'Rx',
-	'rxjs/Observer' : 'Rx',
-	'rxjs/add/operator/map' : 'Rx'
-};
-
+const browserFile = cleanName(pkg.name) + '.es5.js';
+const moduleFile = 'index.js';
+const minFile = cleanName(pkg.name) + '.es5.min.js';
 
 var umdConfig = {
-		input : './dist/index.js',
+		input : './index.ts',
 		output : {
 			file : targetFolder + browserFile,
-			format : 'umd',
+			format : 'es',
 			exports: 'named'
 		},
 		sourcemap : true,
 		name : browserFile.split('.')[0].replace(/-/g, '_'),
 		plugins : [
+			copy({
+				'./src': './dist/src'
+			}),
+			angular(),
+			typescript(),
 			resolve({
+				jsnext: true,
+				main: true,
 				browser: true
 			}),
+			autoExternal(),
 			commonjs()
-		],
-		external : Object.keys(globals),
-		globals : globals
-};
-
-var es5Config = {
-		input : './dist/index.js',
-		output : {
-			file : targetFolder + moduleFile,
-			format : 'es',
-			exports: 'named'
-		},
-		sourcemap : true,
-		name : moduleFile.split('.')[0].replace(/-/g, '_'),
-		plugins : [
-			resolve({
-				browser: true
-			}),
-			commonjs(),
-		],
-		external : Object.keys(globals),
-		globals : globals
+		]
 };
 
 var minifyConfig = {
-		input : './dist/index.js',
+		input : './index.ts',
 		output : {
 			file : targetFolder + minFile,
-			format : 'umd',
+			format : 'es',
 			exports: 'named'
 		},
 		sourcemap : true,
 		name : minFile.split('.')[0].replace(/-/g, '_'),
 		plugins : [
+			angular(),
+			typescript(),
 			resolve({
+				jsnext: true,
+				main: true,
 				browser: true
 			}),
+			autoExternal(),
 			commonjs(),
 			uglify({}, minify),
 			pkgGen({pkg:{
@@ -103,6 +84,5 @@ var minifyConfig = {
 
 export default [
 	umdConfig,
-	es5Config,
 	minifyConfig
 ]
