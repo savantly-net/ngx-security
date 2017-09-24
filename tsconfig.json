@@ -16,8 +16,8 @@
 		"noUnusedParameters": true,
 		"skipLibCheck": true,
 		"paths": {
-			"@angular/core": [
-				"node_modules/@angular/core"
+			"@angular/*": [
+				"node_modules/@angular/*"
 			],
 			"rxjs/*": [
 				"node_modules/rxjs/*"
@@ -41,6 +41,7 @@
 	},
 	"angularCompilerOptions": {
 		"strictMetadataEmit": true,
+		"skipTemplateCodegen": true,
 		"genDir": "./aot"
     }
 }
