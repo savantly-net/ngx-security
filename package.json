@@ -3,7 +3,7 @@
   "config": {
     "name": "ngx-security"
   },
-  "version": "1.1.7",
+  "version": "1.1.9",
   "description": "Security service and component for an Angular app",
   "main": "index.ts",
   "homepage": "https://github.com/savantly-net/ngx-menu",
@@ -22,7 +22,7 @@
     "package": "rollup -c",
     "postinstall": "npm run update-webdriver",
     "posttest": "remap-istanbul -i coverage/json/coverage-final.json -o coverage/html -t html",
-    "pretest": "rimraf aot dist && npm run lint",
+    "pretest": "npm run lint",
     "test": "karma start",
     "test-watch": "karma start --no-single-run --auto-watch",
     "transpile": "ngc -p tsconfig.json",
@@ -43,7 +43,6 @@
     "@angular/core": "^4.4.3",
     "@angular/router": "^4.4.3",
     "@types/jwt-decode": "^2.2.1",
-    "jwt-decode": "^2.2.0",
     "resolve": "^1.4.0",
     "rxjs": "^5.4.3",
     "zone.js": "^0.8.17"
@@ -64,7 +63,6 @@
     "core-js": "^2.5.1",
     "jasmine-core": "^2.8.0",
     "jasmine-spec-reporter": "^4.2.1",
-    "jwt-decode": "^2.2.0",
     "karma": "^1.7.1",
     "karma-chrome-launcher": "^2.2.0",
     "karma-coverage": "^1.1.1",
@@ -97,5 +95,8 @@
     "uglify-js": "^3.1.1",
     "webdriver-manager": "^12.0.6",
     "zone.js": "^0.8.17"
+  },
+  "dependencies": {
+    "jwt-decode": "^2.2.0"
   }
 }

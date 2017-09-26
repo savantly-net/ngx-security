@@ -11,6 +11,14 @@ var fs = require('fs');
 
 import { minify } from 'uglify-es';
 
+
+const globals = {
+  "jwt-decode" : "jwt_decode",
+  "@angular/core" : "ng.core",
+  "@angular/common" : "ng.common",
+  "@angular/router" : "ng.router"
+};
+
 function copyFile(source, target, cb) {
   var cbCalled = false;
 
@@ -81,7 +89,9 @@ var umdConfig = {
 			}),
 			autoExternal(),
 			commonjs()
-		]
+		],
+		external: Object.keys(globals),
+		globals: globals
 };
 
 var minifyConfig = {
@@ -114,7 +124,9 @@ var minifyConfig = {
 				scripts: {},
 				typings: 'index.d.ts'
 			}})
-		]
+		],
+		external: Object.keys(globals),
+		globals: globals
 };
 
 

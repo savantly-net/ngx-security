@@ -65,7 +65,8 @@ module.exports = function (config) {
 					angular(),
 		    		typescript({tsconfig:'./tsconfig-test.json'}),
 					resolve({
-						browser: true
+						jsnext: true,
+						module: true
 					}),
 					commonjs()
 				]
