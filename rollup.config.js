@@ -61,8 +61,8 @@ function cleanName(name){
 	return name;
 }
 
-const entryFile = './dist/index.js';
-const esFile = 'index.js';
+const entryFile = './build/index.js';
+const esFile = 'module.js';
 const bundleFile = cleanName(pkg.name) + '.umd.js';
 const minFile = cleanName(pkg.name) + '.umd.min.js';
 const targetFolder = './dist/';
