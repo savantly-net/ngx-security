@@ -46,6 +46,8 @@ module.exports = function (config) {
 		format: 'umd',
 		name: 'ngxLibrary',
 		sourcemap: 'inline',
+		external: ['fs'],
+		globals: ['fs', 'require'],
     	plugins: [
 			resolve({
 				browser: true
@@ -63,9 +65,10 @@ module.exports = function (config) {
 				// In this case, to use a different transpiler:
 				plugins: [
 					angular(),
-		    		typescript({tsconfig:'./tsconfig-test.json'}),
+		    		typescript(),
 					resolve({
-						jsnext: true,
+						browser: true,
+						main: true,
 						module: true
 					}),
 					commonjs()
