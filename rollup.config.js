@@ -83,8 +83,8 @@ var umdConfig = {
 				main: true,
 				browser: true
 			}),
-			autoExternal(),
-			commonjs()
+			commonjs(),
+			autoExternal()
 		],
 		external: Object.keys(globals),
 		globals: globals
@@ -106,14 +106,13 @@ var minifyConfig = {
 				main: true,
 				browser: true
 			}),
-			autoExternal(),
 			commonjs(),
+			autoExternal(),
 			uglify({}, minify),
 			pkgGen({pkg:{
 				main: bundleFile,
 				module: esFile,
 				"jsnext:main": esFile,
-				browser: bundleFile,
 				dependencies: pkg.peerDependencies,
 				devDependencies: {},
 				scripts: {},
