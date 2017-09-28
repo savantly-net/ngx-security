@@ -65,3 +65,4 @@ typings/
 /build/
 /es5/
 /es6/
+/.ng_build/

@@ -10,7 +10,7 @@
       "node"
     ],
     "paths": {
-      "@savantly/ngx-security": [ "../dist/ngx-security" ]
+      "@savantly/ngx-security": [ "../dist/@savantly/ngx-security" ]
     }
   },
   "files": [

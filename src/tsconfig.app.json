@@ -2,7 +2,7 @@
   "extends": "../tsconfig.json",
   "angularCompilerOptions": {
     "paths": {
-      "@savantly/ngx-security": [ "../dist/@savantly/ngx-security" ]
+      "@savantly/ngx-security": [ "../dist/" ]
     }
   },
   "compilerOptions": {
