@@ -8,7 +8,7 @@ export interface IUser {
 }
 
 @Component({
-  selector: 'my-user',
+  selector: 'app-user',
   template: `
     <p>
       user works!
