@@ -1,7 +1,7 @@
 import { IUser } from './user/user.component';
 import { Injectable } from '@angular/core';
 
-export interface ISecurityService {
+export abstract class ISecurityService {
   user: IUser;
   logout: () => void;
   login: (username: string, password: string) => boolean;

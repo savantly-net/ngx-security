@@ -1,5 +1,5 @@
 import { TestBed, async } from '@angular/core/testing';
-import { SecurityModule } from '@savantly/ngx-security';
+import { SecurityModule, SecurityService } from '@savantly/ngx-security';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -11,6 +11,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      providers: [SecurityService]
     }).compileComponents();
   }));
 

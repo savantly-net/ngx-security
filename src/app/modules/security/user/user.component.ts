@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-export interface IUser {
+export abstract class IUser {
   principal: string;
   displayName: string;
   authenticated: boolean;

@@ -1,6 +1,6 @@
 {
   "name": "@savantly/ngx-security",
-  "version": "1.1.12",
+  "version": "1.1.15",
   "description": "Security service and component for an Angular app",
   "main": "index.ts",
   "homepage": "https://github.com/savantly-net/ngx-menu",
@@ -15,7 +15,8 @@
     "build:app": "cpr dist/my-lib src/@my/lib && ng build && rimraf src/@my",
     "build:dev": "ng build --app dev",
     "build:lib": "ng-packagr",
-    "test": "ng test",
+    "test": "karma start --single-run",
+    "test-watch": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "clean": "rimraf .ng_build dist"

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-export interface IAuthenticationService {
+export abstract class IAuthenticationService {
   isAuthenticated: () => boolean;
 }
 
