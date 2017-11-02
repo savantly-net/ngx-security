@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SecurityService, IUser } from '@savantly/ngx-security';
+import { SecurityService, IUser } from './modules/security';
 
 @Component({
   selector: 'app-root',

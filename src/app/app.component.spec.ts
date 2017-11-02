@@ -1,17 +1,16 @@
 import { TestBed, async } from '@angular/core/testing';
-import { SecurityModule, SecurityService } from '@savantly/ngx-security';
+import { SecurityModule } from './modules/security';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        SecurityModule
+        SecurityModule.forRoot()
       ],
       declarations: [
         AppComponent
       ],
-      providers: [SecurityService]
     }).compileComponents();
   }));
 
