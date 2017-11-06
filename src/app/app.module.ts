@@ -2,8 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ISecurityService } from './modules/security/isecurity.service';
-import { SecurityModule, SecurityMockService } from './modules/security/index';
+import { SecurityModule, SecurityMockService, ISecurityService } from '@savantly/ngx-security';
 
 
 @NgModule({
