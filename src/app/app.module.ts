@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SecurityModule, SecurityMockService } from '@savantly/ngx-security';
 
+export const mockSecurity = new SecurityMockService();
 
 @NgModule({
   declarations: [
@@ -11,9 +12,9 @@ import { SecurityModule, SecurityMockService } from '@savantly/ngx-security';
   ],
   imports: [
     BrowserModule,
-    SecurityModule
+    SecurityModule.forRoot(mockSecurity)
   ],
-  providers: [SecurityMockService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

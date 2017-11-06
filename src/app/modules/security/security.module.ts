@@ -1,7 +1,9 @@
-import { NgModule, ModuleWithProviders, Optional, SkipSelf } from '@angular/core';
+import { ISecurityService } from './ISecurity.service';
+import { NgModule, ModuleWithProviders, Optional, SkipSelf, InjectionToken } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserComponent } from './user/user.component';
 
+export const SECURITY_SERVICE = new InjectionToken<ISecurityService>('security.service');
 
 @NgModule({
   imports: [
@@ -12,5 +14,20 @@ import { UserComponent } from './user/user.component';
 })
 export class SecurityModule {
 
-  constructor () {}
+  static forRoot(securityService: ISecurityService): ModuleWithProviders {
+    return {
+      ngModule: SecurityModule,
+      providers: [{
+        provide: SECURITY_SERVICE,
+        useValue: securityService
+      }]
+    };
+  }
+
+  constructor (@Optional() @SkipSelf() parentModule: SecurityModule) {
+    if (parentModule) {
+      throw new Error(
+        'SecurityModule is already loaded. Import it in the AppModule only');
+    }
+  }
 }
