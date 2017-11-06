@@ -17,7 +17,7 @@
       "dom"
     ],
     "paths": {
-      "@savantly/ngx-security": [ "./.ng_build/ts/ngx-security" ]
+      "@savantly/ngx-security": [ "./dist/@savantly/ngx-security" ]
     }
   },
   "exclude": [

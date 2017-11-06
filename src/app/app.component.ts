@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { SecurityService, IUser } from './modules/security';
+import { IUser } from './modules/security';
+import { ISecurityService } from './modules/security/ISecurity.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent {
   user: IUser;
 
   constructor (
-    securityService: SecurityService
+    securityService: ISecurityService
   ) {
      this.user = securityService.user;
   }

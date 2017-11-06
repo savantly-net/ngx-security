@@ -1,13 +1,14 @@
 import { TestBed, async } from '@angular/core/testing';
-import { SecurityModule } from './modules/security';
+import { SecurityModule, SecurityMockService } from './modules/security';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        SecurityModule.forRoot()
+        SecurityModule
       ],
+      providers: [SecurityMockService],
       declarations: [
         AppComponent
       ],

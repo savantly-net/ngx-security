@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { SecurityModule } from './modules/security/security.module';
+import { SecurityModule, SecurityMockService } from '@savantly/ngx-security';
+
 
 @NgModule({
   declarations: [
@@ -10,8 +11,9 @@ import { SecurityModule } from './modules/security/security.module';
   ],
   imports: [
     BrowserModule,
-    SecurityModule.forRoot()
+    SecurityModule
   ],
+  providers: [SecurityMockService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
