@@ -1,4 +1,5 @@
 export { SecurityModule } from './security.module';
+export { ISecurityService } from './isecurity.service';
 export { UserComponent } from './user/user.component';
 export { IUser } from './user/user.component';
 export { IAuthenticationService } from './authentication/authentication.service';

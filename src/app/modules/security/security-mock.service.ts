@@ -1,4 +1,4 @@
-import { ISecurityService } from './ISecurity.service';
+import { ISecurityService } from './isecurity.service';
 import { IUser } from './user/user.component';
 import { Injectable } from '@angular/core';
 
@@ -16,12 +16,12 @@ export class SecurityMockService implements ISecurityService {
       roles: ['ADMIN', 'USER']
     };
 
-    this.login = (_username: string, _password: string) => {
+    this.login = function(_username: string, _password: string) {
       this.user.authenticated = true;
       return true;
     };
 
-    this.logout = () => {
+    this.logout = function() {
       this.user.authenticated = false;
     };
   }

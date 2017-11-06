@@ -1,9 +1,7 @@
-import { ISecurityService } from './ISecurity.service';
+import { ISecurityService } from './isecurity.service';
 import { NgModule, ModuleWithProviders, Optional, SkipSelf, InjectionToken } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserComponent } from './user/user.component';
-
-export const SECURITY_SERVICE = new InjectionToken<ISecurityService>('security.service');
 
 @NgModule({
   imports: [
@@ -18,7 +16,7 @@ export class SecurityModule {
     return {
       ngModule: SecurityModule,
       providers: [{
-        provide: SECURITY_SERVICE,
+        provide: ISecurityService,
         useValue: securityService
       }]
     };

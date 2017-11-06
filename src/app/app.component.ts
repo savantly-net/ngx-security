@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IUser } from './modules/security';
-import { ISecurityService } from './modules/security/ISecurity.service';
+import { ISecurityService } from './modules/security/isecurity.service';
 
 @Component({
   selector: 'app-root',

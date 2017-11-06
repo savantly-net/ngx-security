@@ -2,9 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { SecurityModule, SecurityMockService } from '@savantly/ngx-security';
+import { ISecurityService } from './modules/security/isecurity.service';
+import { SecurityModule, SecurityMockService } from './modules/security/index';
 
-export const mockSecurity = new SecurityMockService();
 
 @NgModule({
   declarations: [
@@ -12,9 +12,12 @@ export const mockSecurity = new SecurityMockService();
   ],
   imports: [
     BrowserModule,
-    SecurityModule.forRoot(mockSecurity)
+    SecurityModule
   ],
-  providers: [],
+  providers: [{
+    provide: ISecurityService,
+    useClass: SecurityMockService
+  }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
