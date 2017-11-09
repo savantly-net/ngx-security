@@ -1,6 +1,8 @@
 import { TestBed, async } from '@angular/core/testing';
-import { SecurityModule, SecurityMockService, ISecurityService } from './modules/security';
+// import { SecurityModule, SecurityMockService, ISecurityService } from './modules/security';
+import { SecurityModule, SecurityMockService, ISecurityService } from '@savantly/ngx-security';
 import { AppComponent } from './app.component';
+
 
 
 describe('AppComponent', () => {
